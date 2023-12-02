@@ -1,16 +1,23 @@
 package com.portfolio.expensetracker.model;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "report")
 public class Report {
+    @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "expense_sequence" //test
+    )
+    @Column(name = "id")
     private long reportId;
-    private long userId;
+    @OneToMany(cascade = CascadeType.ALL)
+    private User userId;
     private LocalDate generatedOnDate;
 
-    public Report(long reportId, long userId, LocalDate generatedOnDate) {
+    public Report(long reportId, User userId, LocalDate generatedOnDate) {
         this.reportId = reportId;
         this.userId = userId;
         this.generatedOnDate = generatedOnDate;
@@ -25,11 +32,11 @@ public class Report {
         return this;
     }
 
-    public long getUserId() {
+    public User getUserId() {
         return userId;
     }
 
-    public Report setUserId(long userId) {
+    public Report setUserId(User userId) {
         this.userId = userId;
         return this;
     }

@@ -1,23 +1,59 @@
 package com.portfolio.expensetracker.model;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "expense")
 public class Expense {
+    @Id
+    @SequenceGenerator(
+            name="expense_sequence",
+            sequenceName = "expense_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "expense_sequence"
+    )
+    @Column(
+            name = "id",
+            updatable = false
+    )
     private long expendId;
+    @Column(
+            name = "amount",
+            nullable = false
+    )
     private double amount;
+    @Column(
+            name = "currency",
+            nullable = false
+    )
     private String currency;
-    private long userId;
+    @Column(
+            name = "user_id",
+            nullable = false
+    )
+    @ManyToOne(cascade = CascadeType.ALL) // check
+    private User userId;
+    @Column(
+            name = "description",
+            columnDefinition = "TEXT"
+    )
     private String description;
+    @Column(
+            name = "category_id",
+            nullable = false
+    )
     private String categoryId;
+    @Temporal(TemporalType.DATE) // take date time now()
     private LocalDate date;
 
     public Expense(long expendId, double amount,
-                   String currency, long userId,
+                   String currency, User userId,
                    String description, String categoryId,
-                   LocalDate date, String username) {
+                   LocalDate date) {
 
         this.expendId = expendId;
         this.amount = amount;
@@ -40,7 +76,7 @@ public class Expense {
         return currency;
     }
 
-    public long getUserId() {
+    public User getUserId() {
         return userId;
     }
 
@@ -75,7 +111,7 @@ public class Expense {
         return this;
     }
 
-    public Expense setUserId(long userId) {
+    public Expense setUserId(User userId) {
         this.userId = userId;
         return this;
     }

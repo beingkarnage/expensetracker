@@ -1,13 +1,31 @@
 package com.portfolio.expensetracker.model;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
+@Table(
+        name = "user",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "user_email_unique", columnNames = "email"),
+                @UniqueConstraint(name = "user_phone_unique", columnNames = "phone"),
+                @UniqueConstraint(name = "user_phone_username", columnNames = "username"),
+        }
+)
 public class User {
+    @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "expense_sequence" //test
+    )
+    @Column(name = "id", updatable = false)
     private long userId;
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
+    @Column(name = "phone", unique = true, nullable = false)
     private String phone;
+    @Column(name = "password", nullable = false)
     private String password;
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
     public User(long userId, String email, String phone, String password, String username) {

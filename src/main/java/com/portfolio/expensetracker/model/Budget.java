@@ -1,25 +1,51 @@
 package com.portfolio.expensetracker.model;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "budget")
 public class Budget {
+    @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "expense_sequence" //test
+    )
+    @Column(
+            name = "id",
+            updatable = false
+    )
     private long budgetId;
-    private long userId;
-    private long categoryId;
+    @Column(
+            name = "category_id",
+            updatable = false,
+            nullable = false
+    )
+    @OneToMany(cascade = CascadeType.ALL) //test
+    private ExpenseCategory categoryId;
+    @Column(
+            name = "amount",
+            nullable = false
+    )
     private double amount;
+    @Column(name = "period", nullable = false)
     private String period;
+    @Column(
+            name = "start_date",
+            nullable = false
+    )
     private LocalDate startData;
+    @Column(
+            name = "end_date",
+            nullable = false
+    )
     private LocalDate endDate;
 
-    public Budget(long budgetId, long userId,
-                  long categoryId, double amount,
+    public Budget(long budgetId,
+                  ExpenseCategory categoryId, double amount,
                   String period, LocalDate startData,
                   LocalDate endDate) {
         this.budgetId = budgetId;
-        this.userId = userId;
         this.categoryId = categoryId;
         this.amount = amount;
         this.period = period;
@@ -36,20 +62,11 @@ public class Budget {
         return this;
     }
 
-    public long getUserId() {
-        return userId;
-    }
-
-    public Budget setUserId(long userId) {
-        this.userId = userId;
-        return this;
-    }
-
-    public long getCategoryId() {
+    public ExpenseCategory getCategoryId() {
         return categoryId;
     }
 
-    public Budget setCategoryId(long categoryId) {
+    public Budget setCategoryId(ExpenseCategory categoryId) {
         this.categoryId = categoryId;
         return this;
     }
