@@ -1,5 +1,6 @@
 package com.portfolio.expensetracker.model;
 
+import com.portfolio.expensetracker.repository.ExpenseRepository;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -40,17 +41,15 @@ public class Expense {
             columnDefinition = "TEXT"
     )
     private String description;
-    @Column(
-            name = "category_id",
-            nullable = false
-    )
-    private String categoryId;
+    @ManyToOne(cascade = CascadeType.ALL) //test
+    @JoinColumn(name = "expense_cat_id", nullable = false)
+    private ExpenseCategory categoryId;
     @Temporal(TemporalType.DATE) // take date time now()
     private LocalDate date;
 
     public Expense(long expendId, double amount,
                    String currency, User userId,
-                   String description, String categoryId,
+                   String description, ExpenseCategory categoryId,
                    LocalDate date) {
 
         this.expendId = expendId;
@@ -86,7 +85,7 @@ public class Expense {
         this.description = description;
     }
 
-    public String getCategoryId() {
+    public ExpenseCategory getCategoryId() {
         return categoryId;
     }
 
@@ -114,7 +113,7 @@ public class Expense {
         return this;
     }
 
-    public Expense setCategoryId(String categoryId) {
+    public Expense setCategoryId(ExpenseCategory categoryId) {
         this.categoryId = categoryId;
         return this;
     }
