@@ -35,7 +35,7 @@ public class Expense {
 
     @ManyToOne(cascade = CascadeType.ALL) // check
     @JoinColumn(name = "user_id", nullable = false)
-    private User userId;
+    private User user;
     @Column(
             name = "description",
             columnDefinition = "TEXT"
@@ -48,14 +48,14 @@ public class Expense {
     private LocalDate date;
 
     public Expense(long expendId, double amount,
-                   String currency, User userId,
+                   String currency, User user,
                    String description, ExpenseCategory categoryId,
                    LocalDate date) {
 
         this.expenseId = expendId;
         this.amount = amount;
         this.currency = currency;
-        this.userId = userId;
+        this.user = user;
         this.description = description;
         this.categoryId = categoryId;
         this.date = date;
@@ -74,7 +74,7 @@ public class Expense {
     }
 
     public User getUserId() {
-        return userId;
+        return user;
     }
 
     public String getDescription() {
@@ -109,7 +109,7 @@ public class Expense {
     }
 
     public Expense setUserId(User userId) {
-        this.userId = userId;
+        this.user = userId;
         return this;
     }
 
