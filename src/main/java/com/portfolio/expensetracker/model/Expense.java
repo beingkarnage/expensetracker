@@ -21,7 +21,7 @@ public class Expense {
             name = "id",
             updatable = false
     )
-    private long expendId;
+    private long expenseId;
     @Column(
             name = "amount",
             nullable = false
@@ -52,7 +52,7 @@ public class Expense {
                    String description, ExpenseCategory categoryId,
                    LocalDate date) {
 
-        this.expendId = expendId;
+        this.expenseId = expendId;
         this.amount = amount;
         this.currency = currency;
         this.userId = userId;
@@ -62,7 +62,7 @@ public class Expense {
     }
 
     public long getExpendId() {
-        return expendId;
+        return expenseId;
     }
 
     public double getAmount() {
@@ -94,7 +94,7 @@ public class Expense {
     }
 
     public Expense setExpendId(long expendId) {
-        this.expendId = expendId;
+        this.expenseId = expendId;
         return this;
     }
 
