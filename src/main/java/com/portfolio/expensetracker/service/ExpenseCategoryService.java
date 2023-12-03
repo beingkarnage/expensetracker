@@ -11,7 +11,7 @@ import java.util.List;
 public class ExpenseCategoryService {
     @Autowired
     private ExpenseCategoryRepository expenseCategoryRepository;
-    public List<ExpenseCategory> getAllExpenses() {
+    public List<ExpenseCategory> getAllExpenseCategory() {
         return expenseCategoryRepository.findAll();
     }
 

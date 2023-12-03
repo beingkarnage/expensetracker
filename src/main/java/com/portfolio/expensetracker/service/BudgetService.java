@@ -1,6 +1,7 @@
 package com.portfolio.expensetracker.service;
 
 import com.portfolio.expensetracker.model.Budget;
+import com.portfolio.expensetracker.model.User;
 import com.portfolio.expensetracker.repository.BudgetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class BudgetService {
     public Budget getBudgetById(Long userId) {
         return budgetRepository.findById(userId).orElse(null);
     }
-
+    public List<Budget> getBudgetByUserId(User user) {return budgetRepository.findByUserId(user);}
     public void saveBudget(Budget budget) {
         budgetRepository.save(budget);
     }

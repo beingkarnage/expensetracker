@@ -27,4 +27,8 @@ public class UserService {
     public void deleteUser(Long userId) {
         userRepository.deleteById(userId);
     }
+
+    public User getUserByUsername(User user) { return userRepository.findByUsername(user); }
+    public User getUserByEmail(String email ) { return userRepository.findByEmail(email);}
+    public User getUserByPhone(String phone) {return userRepository.findByPhone(phone);}
 }
