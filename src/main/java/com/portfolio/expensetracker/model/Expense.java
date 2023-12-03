@@ -61,7 +61,7 @@ public class Expense {
         this.date = date;
     }
 
-    public long getExpendId() {
+    public long getExpenseId() {
         return expenseId;
     }
 
@@ -93,7 +93,7 @@ public class Expense {
         return date;
     }
 
-    public Expense setExpendId(long expendId) {
+    public Expense setExpenseId(long expendId) {
         this.expenseId = expendId;
         return this;
     }
