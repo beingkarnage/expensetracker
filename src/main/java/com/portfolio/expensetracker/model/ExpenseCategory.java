@@ -5,11 +5,11 @@ import jakarta.persistence.*;
 @Entity(name = "expense_category")
 public class ExpenseCategory {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "expense_sequence" //test
-    )
-    @Column(name = "id")
+//    @GeneratedValue(
+//            strategy = GenerationType.SEQUENCE,
+//            generator = "expense_sequence" //test
+//    )
+    @Column(name = "expense_cat_id")
     private long expenseIdCategoryId;
     @Column(name = "category_name", nullable = false, unique = true)
     private String category;

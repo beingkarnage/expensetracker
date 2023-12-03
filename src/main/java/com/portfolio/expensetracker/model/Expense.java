@@ -31,11 +31,9 @@ public class Expense {
             nullable = false
     )
     private String currency;
-    @Column(
-            name = "user_id",
-            nullable = false
-    )
+
     @ManyToOne(cascade = CascadeType.ALL) // check
+    @JoinColumn(name = "user_id", nullable = false)
     private User userId;
     @Column(
             name = "description",

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(
-        name = "user",
+        name = "expense_user",
         uniqueConstraints = {
                 @UniqueConstraint(name = "user_email_unique", columnNames = "email"),
                 @UniqueConstraint(name = "user_phone_unique", columnNames = "phone"),
@@ -13,11 +13,11 @@ import jakarta.persistence.*;
 )
 public class User {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "expense_sequence" //test
-    )
-    @Column(name = "id", updatable = false)
+//    @GeneratedValue(
+//            strategy = GenerationType.SEQUENCE,
+//            generator = "expense_sequence" //test
+//    )
+    @Column(name = "user_id", updatable = false)
     private long userId;
     @Column(name = "email", nullable = false)
     private String email;

@@ -7,21 +7,17 @@ import java.time.LocalDate;
 @Entity(name = "budget")
 public class Budget {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "expense_sequence" //test
-    )
+//    @GeneratedValue(
+//            strategy = GenerationType.SEQUENCE,
+//            generator = "expense_sequence" //test
+//    )
     @Column(
             name = "id",
             updatable = false
     )
     private long budgetId;
-    @Column(
-            name = "category_id",
-            updatable = false,
-            nullable = false
-    )
-    @OneToMany(cascade = CascadeType.ALL) //test
+    @ManyToOne(cascade = CascadeType.ALL) //test
+    @JoinColumn(name = "expense_cat_id", nullable = false)
     private ExpenseCategory categoryId;
     @Column(
             name = "amount",

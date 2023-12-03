@@ -7,14 +7,16 @@ import java.time.LocalDate;
 @Entity(name = "report")
 public class Report {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "expense_sequence" //test
-    )
+//    @GeneratedValue(
+//            strategy = GenerationType.SEQUENCE,
+//            generator = "expense_sequence" //test
+//    )
     @Column(name = "id")
     private long reportId;
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="user_id", nullable = false)
     private User userId;
+    @Temporal(value = TemporalType.DATE)
     private LocalDate generatedOnDate;
 
     public Report(long reportId, User userId, LocalDate generatedOnDate) {
