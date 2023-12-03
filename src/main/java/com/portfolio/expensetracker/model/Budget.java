@@ -19,6 +19,10 @@ public class Budget {
     @ManyToOne(cascade = CascadeType.ALL) //test
     @JoinColumn(name = "expense_cat_id", nullable = false)
     private ExpenseCategory categoryId;
+
+    @ManyToOne(cascade = CascadeType.ALL) //test
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
     @Column(
             name = "amount",
             nullable = false
@@ -37,8 +41,9 @@ public class Budget {
     )
     private LocalDate endDate;
 
+
     public Budget(long budgetId,
-                  ExpenseCategory categoryId, double amount,
+                  ExpenseCategory categoryId,User user,  double amount,
                   String period, LocalDate startData,
                   LocalDate endDate) {
         this.budgetId = budgetId;
@@ -47,8 +52,16 @@ public class Budget {
         this.period = period;
         this.startData = startData;
         this.endDate = endDate;
+        this.user = user;
+    }
+    public User getUser() {
+        return user;
     }
 
+    public Budget setUser(User user) {
+        this.user = user;
+        return this;
+    }
     public long getBudgetId() {
         return budgetId;
     }
