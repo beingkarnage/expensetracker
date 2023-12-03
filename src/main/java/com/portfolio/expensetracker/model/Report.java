@@ -6,11 +6,12 @@ import java.time.LocalDate;
 
 @Entity(name = "report")
 public class Report {
+    public Report() {}
     @Id
-//    @GeneratedValue(
-//            strategy = GenerationType.SEQUENCE,
-//            generator = "expense_sequence" //test
-//    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "expense_sequence" //test
+    )
     @Column(name = "id")
     private long reportId;
     @ManyToOne(cascade = CascadeType.ALL)

@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 @Entity(name = "expense")
 public class Expense {
+    public Expense() {}
     @Id
     @SequenceGenerator(
             name="expense_sequence",

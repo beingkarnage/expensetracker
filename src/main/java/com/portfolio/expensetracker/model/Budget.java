@@ -6,11 +6,13 @@ import java.time.LocalDate;
 
 @Entity(name = "budget")
 public class Budget {
+    public Budget() {}
+
     @Id
-//    @GeneratedValue(
-//            strategy = GenerationType.SEQUENCE,
-//            generator = "expense_sequence" //test
-//    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "expense_sequence" //test
+    )
     @Column(
             name = "id",
             updatable = false

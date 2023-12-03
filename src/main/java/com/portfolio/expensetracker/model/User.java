@@ -12,11 +12,12 @@ import jakarta.persistence.*;
         }
 )
 public class User {
+    public User() {}
     @Id
-//    @GeneratedValue(
-//            strategy = GenerationType.SEQUENCE,
-//            generator = "expense_sequence" //test
-//    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "expense_sequence" //test
+    )
     @Column(name = "user_id", updatable = false)
     private long userId;
     @Column(name = "email", nullable = false)
