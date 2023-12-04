@@ -15,7 +15,7 @@ public class ExpenseService {
     public List<Expense> getAllExpense() {
         return expenseRepository.findAll();
     }
-    public Expense getById(Long expenseId) {
+    public Expense getExpenseById(Long expenseId) {
         return expenseRepository.findById(expenseId).orElse(null);
     }
     public void saveExpense(Expense expense) {

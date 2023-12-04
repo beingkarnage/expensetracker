@@ -18,7 +18,7 @@ public class BudgetService {
     public Budget getBudgetById(Long userId) {
         return budgetRepository.findById(userId).orElse(null);
     }
-    public List<Budget> getBudgetByUserId(User user) {return budgetRepository.findByUserId(user);}
+    public List<Budget> getBudgetByUserId(User user) {return budgetRepository.findByUser(user);}
     public void saveBudget(Budget budget) {
         budgetRepository.save(budget);
     }
