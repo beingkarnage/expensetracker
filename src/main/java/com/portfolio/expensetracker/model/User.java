@@ -15,8 +15,7 @@ public class User {
     public User() {}
     @Id
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "expense_sequence" //test
+            strategy = GenerationType.AUTO
     )
     @Column(name = "user_id", updatable = false)
     private long userId;

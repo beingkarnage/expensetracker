@@ -7,8 +7,7 @@ public class ExpenseCategory {
     public ExpenseCategory() {}
     @Id
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "expense_sequence" //test
+            strategy = GenerationType.AUTO
     )
     @Column(name = "expense_cat_id")
     private long expenseIdCategoryId;

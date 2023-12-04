@@ -9,8 +9,7 @@ public class Report {
     public Report() {}
     @Id
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "expense_sequence" //test
+            strategy = GenerationType.AUTO
     )
     @Column(name = "id")
     private long reportId;

@@ -9,14 +9,8 @@ import java.time.LocalDate;
 public class Expense {
     public Expense() {}
     @Id
-    @SequenceGenerator(
-            name="expense_sequence",
-            sequenceName = "expense_sequence",
-            allocationSize = 1
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "expense_sequence"
+            strategy = GenerationType.AUTO
     )
     @Column(
             name = "id",

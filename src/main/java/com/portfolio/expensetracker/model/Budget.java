@@ -10,8 +10,7 @@ public class Budget {
 
     @Id
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "expense_sequence" //test
+            strategy = GenerationType.AUTO
     )
     @Column(
             name = "id",
