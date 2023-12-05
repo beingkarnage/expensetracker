@@ -103,7 +103,7 @@ public class Budget {
         return startDate;
     }
 
-    public Budget setStartData(LocalDate startData) {
+    public Budget setStartDate(LocalDate startData) {
         this.startDate = startData;
         return this;
     }
