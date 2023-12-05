@@ -10,21 +10,21 @@ public class ExpenseCategory {
             strategy = GenerationType.AUTO
     )
     @Column(name = "expense_cat_id")
-    private long expenseIdCategoryId;
+    private long expenseCategoryId;
     @Column(name = "category_name", nullable = false, unique = true)
     private String category;
 
-    public ExpenseCategory(long expenseIdCategoryId, String category) {
-        this.expenseIdCategoryId = expenseIdCategoryId;
+    public ExpenseCategory(long expenseCategoryId, String category) {
+        this.expenseCategoryId = expenseCategoryId;
         this.category = category;
     }
 
     public long getExpenseIdCategoryId() {
-        return expenseIdCategoryId;
+        return expenseCategoryId;
     }
 
-    public ExpenseCategory setExpenseIdCategoryId(long expenseIdCategoryId) {
-        this.expenseIdCategoryId = expenseIdCategoryId;
+    public ExpenseCategory setExpenseIdCategoryId(long expenseCategoryId) {
+        this.expenseCategoryId = expenseCategoryId;
         return this;
     }
 
