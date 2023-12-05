@@ -35,7 +35,7 @@ public class Budget {
             name = "start_date",
             nullable = false
     )
-    private LocalDate startData;
+    private LocalDate startDate;
     @Column(
             name = "end_date",
             nullable = false
@@ -45,13 +45,13 @@ public class Budget {
 
     public Budget(long budgetId,
                   ExpenseCategory categoryId,User user,  double amount,
-                  String period, LocalDate startData,
+                  String period, LocalDate startDate,
                   LocalDate endDate) {
         this.budgetId = budgetId;
         this.categoryId = categoryId;
         this.amount = amount;
         this.period = period;
-        this.startData = startData;
+        this.startDate = startDate;
         this.endDate = endDate;
         this.user = user;
     }
@@ -100,11 +100,11 @@ public class Budget {
     }
 
     public LocalDate getStartData() {
-        return startData;
+        return startDate;
     }
 
     public Budget setStartData(LocalDate startData) {
-        this.startData = startData;
+        this.startDate = startData;
         return this;
     }
 
