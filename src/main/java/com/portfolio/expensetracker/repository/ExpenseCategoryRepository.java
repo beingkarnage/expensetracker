@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ExpenseCategoryRepository extends JpaRepository<ExpenseCategory, Long> {
+    public ExpenseCategory findByCategory(String category);
+
 }
